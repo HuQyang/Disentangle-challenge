@@ -21,27 +21,6 @@ def get_files_cached(folder, type, regexp, reload=False):
       file_write.write('\n'.join(filelist))
     return filelist
 
-
-def get_rendered_files(folder, size_suffix='64x64'):
-  return get_files_cached(folder, 'rendered', '.*r_\d{3}_' + size_suffix + '\.png$')
-
-
-def get_albedo_files(folder, size_suffix='64x64'):
-  return get_files_cached(folder, 'albedo', '.*r_\d{3}_albedo\.png0001_' + size_suffix + '\.png$')
-
-
-def get_normal_files(folder, size_suffix='64x64'):
-  return get_files_cached(folder, 'normal', '.*r_\d{3}_normal\.png0001_' + size_suffix + '\.png$')
-
-
-def get_depth_files(folder, size_suffix='64x64'):
-  return get_files_cached(folder, 'depth', '.*r_\d{3}_depth\.png0001_' + size_suffix + '\.png$')
-
-
-def get_sketch_files(folder, size_suffix='64x64'):
-  return get_files_cached(folder, 'sketch', '.*r_\d{3}_sketch_' + size_suffix + '.png$')
-
-
 def preprocess(image_tensor, img_size,resize_size, whiten=True, color=False,
                augment=False, augment_color=False, augment_translation=False,grayscale=False):
   # Use same seed for flipping for every tensor, so they'll be flipped the same.
